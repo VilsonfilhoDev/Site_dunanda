@@ -1,10 +1,15 @@
-// Array para armazenar os itens selecionados
-let carrinho = [];
+/* =========================================
+   1. ESTADO E CONFIGURAÇÕES GERAIS
+========================================= */
+// Carrega o carrinho salvo no navegador ou inicia um array vazio
+let carrinho = JSON.parse(localStorage.getItem('dunanda_carrinho')) || [];
 
 // Número oficial da DU NANDA STORE (Bariri)
 const TELEFONE_WHATSAPP = '5514997062561';
 
-// Elementos da interface
+/* =========================================
+   2. ELEMENTOS DA INTERFACE (DOM)
+========================================= */
 const cartModal = document.getElementById('cart-modal');
 const cartBtn = document.getElementById('cart-btn');
 const closeCartBtn = document.getElementById('close-cart-btn');
@@ -13,26 +18,43 @@ const cartCount = document.getElementById('cart-count');
 const cartTotalPrice = document.getElementById('cart-total-price');
 const checkoutBtn = document.querySelector('.checkout-btn');
 
-// Função para adicionar itens à sacola capturando o tamanho selecionado no card
+/* =========================================
+   3. FUNÇÕES AUXILIARES
+========================================= */
+// Formata números para o padrão BRL (ex: 150 -> R$ 150,00)
+function formatarMoeda(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
+// Salva o estado atual do carrinho no LocalStorage
+function salvarCarrinho() {
+    localStorage.setItem('dunanda_carrinho', JSON.stringify(carrinho));
+}
+
+/* =========================================
+   4. GERENCIAMENTO DO CARRINHO
+========================================= */
+// Adiciona itens ao carrinho capturando o tamanho selecionado no card
 function adicionarAoCarrinhoComTamanho(button, id, nome, preco, imagemUrl) {
-    // Encontra o card pai do botão
     const card = button.closest('.product-card');
-    const sizeSelect = card.querySelector('.size-select');
+    const sizeSelect = card ? card.querySelector('.size-select') : null;
     const tamanho = sizeSelect ? sizeSelect.value : 'Único';
 
-    carrinho.push({ id, nome, preco, imagemUrl, tamanho });
+    carrinho.push({ id, nome, preco: Number(preco), imagemUrl, tamanho });
+
+    salvarCarrinho();
     atualizarCarrinho();
     abrirModal();
 }
 
-// Atualizar o visual do carrinho
+// Atualiza o HTML do carrinho e calcula o total
 function atualizarCarrinho() {
     cartCount.innerText = carrinho.length;
     cartItemsContainer.innerHTML = '';
 
     if (carrinho.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-msg">Sua sacola está vazia.</p>';
-        cartTotalPrice.innerText = 'R$ 0';
+        cartItemsContainer.innerHTML = '<p class="empty-msg">Seu carrinho está vazio.</p>';
+        cartTotalPrice.innerText = formatarMoeda(0);
         return;
     }
 
@@ -44,33 +66,36 @@ function atualizarCarrinho() {
         const itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
         itemElement.innerHTML = `
-      <img src="${item.imagemUrl}" alt="${item.nome}" class="cart-item-img">
-      <div class="cart-item-info">
-        <h4>${item.nome}</h4>
-        <div class="cart-item-meta">
-          <span class="item-ref">Ref: ${item.id}</span>
-          <span class="item-size-badge">Tam: ${item.tamanho}</span>
-        </div>
-        <p>R$ ${item.preco.toLocaleString('pt-BR')}</p>
-      </div>
-      <button onclick="removerDoCarrinho(${index})" class="cart-remove-btn">&times;</button>
-    `;
+            <img src="${item.imagemUrl}" alt="${item.nome}" class="cart-item-img">
+            <div class="cart-item-info">
+                <h4>${item.nome}</h4>
+                <div class="cart-item-meta">
+                    <span class="item-ref">Ref: ${item.id}</span>
+                    <span class="item-size-badge">Tam: ${item.tamanho}</span>
+                </div>
+                <p>${formatarMoeda(item.preco)}</p>
+            </div>
+            <button onclick="removerDoCarrinho(${index})" class="cart-remove-btn" title="Remover item">&times;</button>
+        `;
         cartItemsContainer.appendChild(itemElement);
     });
 
-    cartTotalPrice.innerText = `R$ ${total.toLocaleString('pt-BR')}`;
+    cartTotalPrice.innerText = formatarMoeda(total);
 }
 
 // Remover item específico do carrinho
 function removerDoCarrinho(index) {
     carrinho.splice(index, 1);
+    salvarCarrinho();
     atualizarCarrinho();
 }
 
-// Enviar pedido direto para o WhatsApp incluindo os tamanhos e referências
+/* =========================================
+   5. INTEGRAÇÃO WHATSAPP
+========================================= */
 function finalizarPedidoWhatsApp() {
     if (carrinho.length === 0) {
-        alert("Sua sacola está vazia!");
+        alert("Seu carrinho está vazio!");
         return;
     }
 
@@ -78,11 +103,11 @@ function finalizarPedidoWhatsApp() {
 
     let total = 0;
     carrinho.forEach((item) => {
-        mensagem += `• *[${item.id}]* ${item.nome} — *Tamanho: ${item.tamanho}* — R$ ${item.preco.toLocaleString('pt-BR')}\n`;
+        mensagem += `• *[${item.id}]* ${item.nome} — *Tamanho: ${item.tamanho}* — ${formatarMoeda(item.preco)}\n`;
         total += item.preco;
     });
 
-    mensagem += `\n*Total:* R$ ${total.toLocaleString('pt-BR')}`;
+    mensagem += `\n*Total:* ${formatarMoeda(total)}`;
     mensagem += "\n\nPodemos confirmar a disponibilidade das peças e combinar o pagamento e entrega?";
 
     const mensagemFormatada = encodeURIComponent(mensagem);
@@ -91,15 +116,44 @@ function finalizarPedidoWhatsApp() {
     window.open(urlWhatsApp, '_blank');
 }
 
-// Controle do Modal
+/* =========================================
+   6. FILTRO DE CATEGORIAS (OPCIONAL)
+========================================= */
+function filtrarProdutos(categoria, buttonElement) {
+    // Alterna a classe ativa nos botões
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (buttonElement) buttonElement.classList.add('active');
+
+    // Filtra os cards na vitrine baseando-se no atributo data-category
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+        const productCategory = card.getAttribute('data-category');
+        if (categoria === 'todos' || productCategory === categoria) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+/* =========================================
+   7. CONTROLE DO MODAL E EVENTOS
+========================================= */
 function abrirModal() { cartModal.classList.add('active'); }
 function fecharModal() { cartModal.classList.remove('active'); }
 
-// Eventos de clique
-cartBtn.addEventListener('click', abrirModal);
-closeCartBtn.addEventListener('click', fecharModal);
-checkoutBtn.addEventListener('click', finalizarPedidoWhatsApp);
+if (cartBtn) cartBtn.addEventListener('click', abrirModal);
+if (closeCartBtn) closeCartBtn.addEventListener('click', fecharModal);
+if (checkoutBtn) checkoutBtn.addEventListener('click', finalizarPedidoWhatsApp);
 
-cartModal.addEventListener('click', (event) => {
-    if (event.target === cartModal) fecharModal();
-}); 
+if (cartModal) {
+    cartModal.addEventListener('click', (event) => {
+        if (event.target === cartModal) fecharModal();
+    });
+}
+
+// Inicializa a renderização do carrinho na carga da página
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarCarrinho();
+});

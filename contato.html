@@ -31,7 +31,7 @@
         <nav>
             <a href="index.html">Vitrine</a>
             <a href="a-loja.html">A Loja</a>
-            <a href="contato.html" style="color: #fff;">Contato</a>
+            <a href="contato.html" class="active">Contato</a>
         </nav>
 
         <div class="cart-icon" id="cart-btn">
@@ -39,7 +39,7 @@
         </div>
     </header>
 
-    <!-- Banner -->
+    <!-- Banner Principal -->
     <section class="hero"
         style="height: 40vh; background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1600&auto=format&fit=crop');">
         <div class="hero-content">
@@ -48,72 +48,74 @@
         </div>
     </section>
 
-    <!-- Informações de Contato -->
-    <section class="catalog" style="max-width: 1000px; margin: 0 auto;">
+    <!-- Seção de Informações de Contato e Localização -->
+    <main class="catalog" style="max-width: 1000px; margin: 0 auto; padding: 4rem 1rem;">
         <div
             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; text-align: left;">
 
             <!-- Dados da Loja -->
-            <div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #fff;">Visite Nossa Boutique</h3>
+            <div class="contact-info">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff; font-family: 'Cinzel', serif;">Visite
+                    Nossa Boutique</h2>
 
-                <p style="margin-bottom: 1rem; color: #ccc;">
+                <p style="margin-bottom: 1.2rem; color: #ccc; line-height: 1.6;">
                     <strong>📍 Endereço:</strong><br>
                     Rua Rodrigues Alves, 397 - Centro<br>
                     Bariri - SP, CEP 17250-000
                 </p>
 
-                <p style="margin-bottom: 1rem; color: #ccc;">
+                <p style="margin-bottom: 1.2rem; color: #ccc; line-height: 1.6;">
                     <strong>💬 WhatsApp VIP:</strong><br>
                     (14) 99706-2561
                 </p>
 
-                <p style="margin-bottom: 2rem; color: #ccc;">
+                <p style="margin-bottom: 2rem; color: #ccc; line-height: 1.6;">
                     <strong>🕒 Horário de Atendimento:</strong><br>
                     Segunda a Sexta: 09h00 às 18h00<br>
                     Sábado: 09h00 às 13h00
                 </p>
 
-                <a href="https://wa.me/5514997062561" target="_blank" class="btn-primary"
-                    style="display: block; text-align: center;">Chamar no WhatsApp</a>
+                <a href="https://wa.me/5514997062561" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                    style="display: inline-block; width: 100%; text-align: center; text-decoration: none;">Chamar no
+                    WhatsApp</a>
             </div>
 
             <!-- Mapa do Google Incorporado -->
-            <div style="border: 1px solid #222; overflow: hidden; height: 350px;">
+            <div style="border: 1px solid #222; border-radius: 8px; overflow: hidden; height: 380px;">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.627680193498!2d-48.743152!3d-22.072212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8e612984b4221%3A0x6bd7faef22c192f1!2sR.%20Rodrigues%20Alves%2C%20397%20-%20Centro%2C%20Bariri%20-%20SP%2C%2017250-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
                     width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);"
-                    allowfullscreen="" loading="lazy">
+                    allowfullscreen="" loading="lazy" title="Localização da DU NANDA STORE">
                 </iframe>
             </div>
 
         </div>
-    </section>
+    </main>
 
     <!-- Modal do Carrinho -->
     <div id="cart-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Sua Sacola Exclusiva</h2>
-                <button id="close-cart-btn" class="close-btn">&times;</button>
+                <button id="close-cart-btn" class="close-btn" aria-label="Fechar carrinho">&times;</button>
             </div>
             <div id="cart-items" class="cart-items-list"></div>
             <div class="modal-footer">
                 <div class="cart-total">
                     <span>Total</span>
-                    <span id="cart-total-price">R$ 0</span>
+                    <span id="cart-total-price">R$ 0,00</span>
                 </div>
                 <button class="checkout-btn">Finalizar Pedido VIP</button>
             </div>
         </div>
     </div>
 
-    <!-- Rodapé Premium (Atualizado com Logo Maior e Ícones de Apps) -->
+    <!-- Rodapé -->
     <footer id="contato" class="site-footer">
         <div class="footer-top">
-            <!-- Coluna 1: Logo da Loja (Área Vermelha) -->
+            <!-- Coluna 1: Logo -->
             <div class="footer-col main-links">
-                <a href="#" class="logo-container footer-logo">
+                <a href="index.html" class="logo-container footer-logo">
                     <div class="logo-badge">
                         <span class="top">DU NANDA</span>
                         <span class="sub">STORE</span>
@@ -121,7 +123,7 @@
                 </a>
                 <p class="footer-desc">Moda Feminina & Exclusividade.<br>Elegância em cada detalhe para você.</p>
             </div>
-    
+
             <!-- Coluna 2: Ajuda -->
             <div class="footer-col">
                 <h4>Ajuda</h4>
@@ -131,24 +133,23 @@
                 <a href="#">Pedidos</a>
                 <a href="#">Trocas e Devoluções</a>
                 <a href="#">Pagamentos</a>
-                <a href="#">Fale conosco</a>
+                <a href="contato.html">Fale conosco</a>
             </div>
-    
+
             <!-- Coluna 3: Sobre a Loja -->
             <div class="footer-col">
                 <h4>Sobre a Du Nanda</h4>
-                <a href="#">Nosso Propósito</a>
+                <a href="a-loja.html">Nosso Propósito</a>
                 <a href="#">Sustentabilidade</a>
                 <a href="#">A Empresa</a>
                 <a href="#">Trabalhe Conosco</a>
             </div>
-    
-            <!-- Coluna 4: Redes e Apps (Área Azul) -->
+
+            <!-- Coluna 4: Redes e Apps -->
             <div class="footer-col social-app">
                 <div class="social-section">
                     <h4>Redes Sociais</h4>
                     <div class="social-icons">
-                        <!-- Ícone Instagram -->
                         <a href="#" class="social-link" title="Instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -157,14 +158,12 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <!-- Ícone Facebook -->
                         <a href="#" class="social-link" title="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
-                        <!-- Ícone TikTok (Nota musical) -->
                         <a href="#" class="social-link" title="TikTok">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -176,7 +175,6 @@
                 <div class="app-section">
                     <h4>Baixe nosso App</h4>
                     <div class="store-buttons">
-                        <!-- Botão Google Play com Ícone -->
                         <a href="#" class="store-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 viewBox="0 0 16 16">
@@ -185,7 +183,6 @@
                             </svg>
                             Google Play
                         </a>
-                        <!-- Botão App Store com Ícone -->
                         <a href="#" class="store-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 viewBox="0 0 16 16">
@@ -198,7 +195,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="footer-bottom">
             <div class="legal-links">
                 <a href="#">Política de privacidade</a>

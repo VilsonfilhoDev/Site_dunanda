@@ -32,7 +32,13 @@
         </nav>
 
         <div class="cart-icon" id="cart-btn">
-            Sacola (<span id="cart-count">0</span>)
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Carrinho (<span id="cart-count">0</span>)
         </div>
     </header>
 
@@ -45,14 +51,27 @@
         </div>
     </section>
 
-    <!-- Catálogo de Produtos com Seleção de Tamanho -->
+    <!-- Catálogo de Produtos com Filtro, Badges e Seleção de Tamanho -->
     <section id="colecao" class="catalog">
         <h2>Vitrine da Temporada</h2>
+
+        <!-- Filtros por Categoria -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="todos">Todos</button>
+            <button class="filter-btn" data-category="vestidos">Vestidos</button>
+            <button class="filter-btn" data-category="alfaiataria">Alfaiataria & Blazers</button>
+            <button class="filter-btn" data-category="acessorios">Bolsas & Calçados</button>
+        </div>
+
         <div class="product-grid">
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop"
-                    alt="Sobretudo Cashmere">
+            <!-- Card 1 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-destaque">DESTAQUE</span>
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop"
+                        alt="Sobretudo Cashmere">
+                </div>
                 <h3>Sobretudo Cashmere</h3>
                 <p class="product-id">Ref: DN-101</p>
                 <div class="size-selector-container">
@@ -71,9 +90,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop"
-                    alt="Vestido de Seda Minimalista">
+            <!-- Card 2 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-novidade">NOVIDADE</span>
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop"
+                        alt="Vestido de Seda Minimalista">
+                </div>
                 <h3>Vestido de Seda Minimalista</h3>
                 <p class="product-id">Ref: DN-102</p>
                 <div class="size-selector-container">
@@ -91,9 +114,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop"
-                    alt="Terno Alfaiataria Italiana">
+            <!-- Card 3 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop"
+                        alt="Terno Alfaiataria Italiana">
+                </div>
                 <h3>Terno Alfaiataria Italiana</h3>
                 <p class="product-id">Ref: DN-103</p>
                 <div class="size-selector-container">
@@ -111,9 +137,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="data:image/webp;base64,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"
-                    alt="Blazer Feminino Oversized">
+            <!-- Card 4 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-ultimas">ÚLTIMAS PEÇAS</span>
+                    <img src="data:image/webp;base64,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"
+                        alt="Blazer Feminino Oversized">
+                </div>
                 <h3>Blazer Feminino Oversized</h3>
                 <p class="product-id">Ref: DN-104</p>
                 <div class="size-selector-container">
@@ -130,9 +160,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
-                    alt="Camisa de Seda Pura">
+            <!-- Card 5 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
+                        alt="Camisa de Seda Pura">
+                </div>
                 <h3>Camisa de Seda Pura</h3>
                 <p class="product-id">Ref: DN-105</p>
                 <div class="size-selector-container">
@@ -150,9 +183,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
-                    alt="Calça Pantalona Alfaiataria">
+            <!-- Card 6 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
+                        alt="Calça Pantalona Alfaiataria">
+                </div>
                 <h3>Calça Pantalona Alfaiataria</h3>
                 <p class="product-id">Ref: DN-106</p>
                 <div class="size-selector-container">
@@ -170,9 +206,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
-                    alt="Vestido Longo de Festas">
+            <!-- Card 7 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-destaque">DESTAQUE</span>
+                    <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
+                        alt="Vestido Longo de Festas">
+                </div>
                 <h3>Vestido Longo de Festas</h3>
                 <p class="product-id">Ref: DN-107</p>
                 <div class="size-selector-container">
@@ -190,9 +230,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
-                    alt="Trench Coat Monocromático">
+            <!-- Card 8 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
+                        alt="Trench Coat Monocromático">
+                </div>
                 <h3>Trench Coat Monocromático</h3>
                 <p class="product-id">Ref: DN-108</p>
                 <div class="size-selector-container">
@@ -209,9 +252,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
-                    alt="Conjunto Tweed Exclusivo">
+            <!-- Card 9 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-novidade">NOVIDADE</span>
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                        alt="Conjunto Tweed Exclusivo">
+                </div>
                 <h3>Conjunto Tweed Exclusivo</h3>
                 <p class="product-id">Ref: DN-109</p>
                 <div class="size-selector-container">
@@ -228,9 +275,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=800&auto=format&fit=crop"
-                    alt="Saia Midi Plissada">
+            <!-- Card 10 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=800&auto=format&fit=crop"
+                        alt="Saia Midi Plissada">
+                </div>
                 <h3>Saia Midi Plissada</h3>
                 <p class="product-id">Ref: DN-110</p>
                 <div class="size-selector-container">
@@ -247,9 +297,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
-                    alt="Bolsa Couro Legítimo">
+            <!-- Card 11 -->
+            <div class="product-card" data-category="acessorios">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-destaque">DESTAQUE</span>
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
+                        alt="Bolsa Couro Legítimo">
+                </div>
                 <h3>Bolsa Couro Legítimo</h3>
                 <p class="product-id">Ref: DN-111</p>
                 <div class="size-selector-container">
@@ -264,9 +318,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop"
-                    alt="Scarpin Couro Fino">
+            <!-- Card 12 -->
+            <div class="product-card" data-category="acessorios">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop"
+                        alt="Scarpin Couro Fino">
+                </div>
                 <h3>Scarpin Couro Fino</h3>
                 <p class="product-id">Ref: DN-112</p>
                 <div class="size-selector-container">
@@ -287,9 +344,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop"
-                    alt="Jaqueta de Couro Premium">
+            <!-- Card 13 -->
+            <div class="product-card" data-category="alfaiataria">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-ultimas">ÚLTIMAS PEÇAS</span>
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop"
+                        alt="Jaqueta de Couro Premium">
+                </div>
                 <h3>Jaqueta de Couro Premium</h3>
                 <p class="product-id">Ref: DN-113</p>
                 <div class="size-selector-container">
@@ -306,9 +367,12 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop"
-                    alt="Macacão Utilitário Fino">
+            <!-- Card 14 -->
+            <div class="product-card" data-category="vestidos">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop"
+                        alt="Macacão Utilitário Fino">
+                </div>
                 <h3>Macacão Utilitário Fino</h3>
                 <p class="product-id">Ref: DN-114</p>
                 <div class="size-selector-container">
@@ -326,9 +390,13 @@
                     à Sacola</button>
             </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop"
-                    alt="Óculos de Sol Haute Couture">
+            <!-- Card 15 -->
+            <div class="product-card" data-category="acessorios">
+                <div class="product-img-wrapper">
+                    <span class="badge badge-novidade">NOVIDADE</span>
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop"
+                        alt="Óculos de Sol Haute Couture">
+                </div>
                 <h3>Óculos de Sol Haute Couture</h3>
                 <p class="product-id">Ref: DN-115</p>
                 <div class="size-selector-container">
@@ -368,10 +436,10 @@
         </div>
     </div>
 
-    <!-- Rodapé Premium (Atualizado com Logo Maior e Ícones de Apps) -->
+    <!-- Rodapé Premium -->
     <footer id="contato" class="site-footer">
         <div class="footer-top">
-            <!-- Coluna 1: Logo da Loja (Área Vermelha) -->
+            <!-- Coluna 1: Logo da Loja -->
             <div class="footer-col main-links">
                 <a href="#" class="logo-container footer-logo">
                     <div class="logo-badge">
@@ -381,7 +449,7 @@
                 </a>
                 <p class="footer-desc">Moda Feminina & Exclusividade.<br>Elegância em cada detalhe para você.</p>
             </div>
-    
+
             <!-- Coluna 2: Ajuda -->
             <div class="footer-col">
                 <h4>Ajuda</h4>
@@ -393,7 +461,7 @@
                 <a href="#">Pagamentos</a>
                 <a href="#">Fale conosco</a>
             </div>
-    
+
             <!-- Coluna 3: Sobre a Loja -->
             <div class="footer-col">
                 <h4>Sobre a Du Nanda</h4>
@@ -402,13 +470,12 @@
                 <a href="#">A Empresa</a>
                 <a href="#">Trabalhe Conosco</a>
             </div>
-    
-            <!-- Coluna 4: Redes e Apps (Área Azul) -->
+
+            <!-- Coluna 4: Redes e Apps -->
             <div class="footer-col social-app">
                 <div class="social-section">
                     <h4>Redes Sociais</h4>
                     <div class="social-icons">
-                        <!-- Ícone Instagram -->
                         <a href="#" class="social-link" title="Instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -417,14 +484,12 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </a>
-                        <!-- Ícone Facebook -->
                         <a href="#" class="social-link" title="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
-                        <!-- Ícone TikTok (Nota musical) -->
                         <a href="#" class="social-link" title="TikTok">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -436,7 +501,6 @@
                 <div class="app-section">
                     <h4>Baixe nosso App</h4>
                     <div class="store-buttons">
-                        <!-- Botão Google Play com Ícone -->
                         <a href="#" class="store-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 viewBox="0 0 16 16">
@@ -445,7 +509,6 @@
                             </svg>
                             Google Play
                         </a>
-                        <!-- Botão App Store com Ícone -->
                         <a href="#" class="store-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 viewBox="0 0 16 16">
@@ -458,7 +521,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="footer-bottom">
             <div class="legal-links">
                 <a href="#">Política de privacidade</a>
@@ -467,10 +530,11 @@
             </div>
             <div class="copyright-info">
                 <p>&copy; 2026 DU NANDA STORE. Todos os direitos reservados.</p>
-                <p>Fisia Comércio de Roupas Ltda - Rua Rodrigues Alves, 397 - Centro, Bariri - SP</p>
             </div>
         </div>
     </footer>
+
+    <!-- Arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 
