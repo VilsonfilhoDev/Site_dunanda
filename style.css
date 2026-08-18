@@ -590,13 +590,27 @@ nav a:hover {
     font-size: 0.85rem;
 }
 
+/* Correção de Dimensionamento da Logo do Rodapé */
 .footer-logo {
-    transform: scale(2.5);
-    transform-origin: top center;
-    margin-top: 0;
-    margin-bottom: 60px;
+    transform: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
     text-decoration: none;
     display: inline-block;
+}
+
+.footer-logo .logo-badge {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+}
+
+.footer-logo .logo-badge .top {
+    font-size: 0.75rem;
+}
+
+.footer-logo .logo-badge .sub {
+    font-size: 0.45rem;
 }
 
 .footer-desc {

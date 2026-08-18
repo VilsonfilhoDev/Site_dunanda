@@ -21,9 +21,13 @@ const checkoutBtn = document.querySelector('.checkout-btn');
 /* =========================================
    3. FUNÇÕES AUXILIARES
 ========================================= */
-// Formata números para o padrão BRL (ex: 12500 -> R$ 12.500,00)
+// Formata números para o padrão BRL garantindo centavos (ex: 2800 -> R$ 2.800,00)
 function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return valor.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
+    });
 }
 
 // Salva o estado atual do carrinho no LocalStorage
