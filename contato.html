@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | DU NANDA STORE</title>
+
+    <!-- Ícone da Guia (Favicon) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='white'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='18' fill='black'>DU NANDA</text><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' letter-spacing='2' fill='black'>STORE</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <div class="logo-badge">
+                <span class="top">DU NANDA</span>
+                <span class="sub">STORE</span>
+            </div>
+            <span class="logo-text">DU NANDA STORE</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Vitrine</a>
+            <a href="a-loja.html">A Loja</a>
+            <a href="contato.html" style="color: #fff;">Contato</a>
+        </nav>
+
+        <div class="cart-icon" id="cart-btn">
+            Sacola (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="hero"
+        style="height: 40vh; background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1600&auto=format&fit=crop');">
+        <div class="hero-content">
+            <p class="subtitle">Atendimento Exclusivo</p>
+            <h1>Fale Conosco</h1>
+        </div>
+    </section>
+
+    <!-- Informações de Contato -->
+    <section class="catalog" style="max-width: 1000px; margin: 0 auto;">
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; text-align: left;">
+
+            <!-- Dados da Loja -->
+            <div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: #fff;">Visite Nossa Boutique</h3>
+
+                <p style="margin-bottom: 1rem; color: #ccc;">
+                    <strong>📍 Endereço:</strong><br>
+                    Rua Rodrigues Alves, 397 - Centro<br>
+                    Bariri - SP, CEP 17250-000
+                </p>
+
+                <p style="margin-bottom: 1rem; color: #ccc;">
+                    <strong>💬 WhatsApp VIP:</strong><br>
+                    (14) 99706-2561
+                </p>
+
+                <p style="margin-bottom: 2rem; color: #ccc;">
+                    <strong>🕒 Horário de Atendimento:</strong><br>
+                    Segunda a Sexta: 09h00 às 18h00<br>
+                    Sábado: 09h00 às 13h00
+                </p>
+
+                <a href="https://wa.me/5514997062561" target="_blank" class="btn-primary"
+                    style="display: block; text-align: center;">Chamar no WhatsApp</a>
+            </div>
+
+            <!-- Mapa do Google Incorporado -->
+            <div style="border: 1px solid #222; overflow: hidden; height: 350px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.627680193498!2d-48.743152!3d-22.072212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8e612984b4221%3A0x6bd7faef22c192f1!2sR.%20Rodrigues%20Alves%2C%20397%20-%20Centro%2C%20Bariri%20-%20SP%2C%2017250-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal do Carrinho -->
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sua Sacola Exclusiva</h2>
+                <button id="close-cart-btn" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items-list"></div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cart-total-price">R$ 0</span>
+                </div>
+                <button class="checkout-btn">Finalizar Pedido VIP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p><strong>DU NANDA STORE Bariri</strong></p>
+        <p>Rua Rodrigues Alves, 397 - Centro, Bariri - SP</p>
+        <p>&copy; 2026 DU NANDA STORE. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,477 @@
+/* Reset e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0b0b0b;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.logo-text {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+}
+
+/* Header & Logo */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #222;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-badge {
+    background-color: #ffffff;
+    color: #000000;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.logo-badge .top {
+    font-size: 0.55rem;
+    font-weight: 800;
+}
+
+.logo-badge .sub {
+    font-size: 0.35rem;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+.cart-icon {
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#cart-count {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin: 1rem 0 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 32px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Catálogo */
+.catalog {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.catalog h2 {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background-color: #111111;
+    border: 1px solid #222;
+    padding: 1.2rem;
+    transition: border-color 0.3s ease;
+}
+
+.product-card:hover {
+    border-color: #ffffff;
+}
+
+.product-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+}
+
+.product-id {
+    font-size: 0.75rem;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Modal do Carrinho */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background-color: #0a0a0a;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #222;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateX(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    padding-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.cart-items-list {
+    flex: 1;
+    overflow-y: auto;
+    margin: 1.5rem 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.cart-item-info h4 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.cart-item-info .item-ref {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.cart-item-info p {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #555;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #222;
+    padding-top: 1.5rem;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #ccc;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    border-top: 1px solid #1a1a1a;
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #fff;
+}
+/* Estilo da foto do item dentro do carrinho */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.cart-item-info .item-ref {
+    font-size: 0.75rem;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cart-item-info p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.cart-remove-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.cart-remove-btn:hover {
+    color: #ff4d4d;
+}
+/* Seletor de Tamanhos nos Cards */
+.size-selector-container {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.size-selector-container label {
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.size-select {
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.size-select:focus,
+.size-select:hover {
+    border-color: #fff;
+}
+
+/* Tag de Tamanho no Carrinho */
+.cart-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.item-size-badge {
+    font-size: 0.7rem;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DU NANDA STORE | Moda Feminina</title>
+
+    <!-- Ícone da Guia (Favicon) -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='white'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='18' fill='black'>DU NANDA</text><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='11' letter-spacing='2' fill='black'>STORE</text></svg>">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <a href="#" class="logo-container">
+            <div class="logo-badge">
+                <span class="top">DU NANDA</span>
+                <span class="sub">STORE</span>
+            </div>
+            <span class="logo-text">DU NANDA STORE</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Vitrine</a>
+            <a href="a-loja.html">A Loja</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+
+        <div class="cart-icon" id="cart-btn">
+            Sacola (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">Moda Feminina & Exclusividade</p>
+            <h1>Elegância em Cada Detalhe</h1>
+            <a href="#colecao" class="btn-primary">Ver Coleção</a>
+        </div>
+    </section>
+
+    <!-- Catálogo de Produtos com Seleção de Tamanho -->
+    <section id="colecao" class="catalog">
+        <h2>Vitrine da Temporada</h2>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop"
+                    alt="Sobretudo Cashmere">
+                <h3>Sobretudo Cashmere</h3>
+                <p class="product-id">Ref: DN-101</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="PP">PP</option>
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                    </select>
+                </div>
+                <p class="price">R$ 12.500</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-101', 'Sobretudo Cashmere', 12500, 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop"
+                    alt="Vestido de Seda Minimalista">
+                <h3>Vestido de Seda Minimalista</h3>
+                <p class="product-id">Ref: DN-102</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="PP">PP</option>
+                        <option value="P" selected>P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 8.900</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-102', 'Vestido de Seda Minimalista', 8900, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop"
+                    alt="Terno Alfaiataria Italiana">
+                <h3>Terno Alfaiataria Italiana</h3>
+                <p class="product-id">Ref: DN-103</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="36">36</option>
+                        <option value="38" selected>38</option>
+                        <option value="40">40</option>
+                        <option value="42">42</option>
+                    </select>
+                </div>
+                <p class="price">R$ 15.200</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-103', 'Terno Alfaiataria Italiana', 15200, 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="data:image/webp;base64,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"
+                    alt="Blazer Feminino Oversized">
+                <h3>Blazer Feminino Oversized</h3>
+                <p class="product-id">Ref: DN-104</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 6.400</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-104', 'Blazer Feminino Oversized', 6400, 'https://images.unsplash.com/photo-1548624149-f1af3482b703?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop"
+                    alt="Camisa de Seda Pura">
+                <h3>Camisa de Seda Pura</h3>
+                <p class="product-id">Ref: DN-105</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="PP">PP</option>
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 4.200</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-105', 'Camisa de Seda Pura', 4200, 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
+                    alt="Calça Pantalona Alfaiataria">
+                <h3>Calça Pantalona Alfaiataria</h3>
+                <p class="product-id">Ref: DN-106</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="36">36</option>
+                        <option value="38" selected>38</option>
+                        <option value="40">40</option>
+                        <option value="42">42</option>
+                    </select>
+                </div>
+                <p class="price">R$ 4.800</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-106', 'Calça Pantalona Alfaiataria', 4800, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop"
+                    alt="Vestido Longo de Festas">
+                <h3>Vestido Longo de Festas</h3>
+                <p class="product-id">Ref: DN-107</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="PP">PP</option>
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 18.500</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-107', 'Vestido Longo de Festas', 18500, 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
+                    alt="Trench Coat Monocromático">
+                <h3>Trench Coat Monocromático</h3>
+                <p class="product-id">Ref: DN-108</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 11.200</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-108', 'Trench Coat Monocromático', 11200, 'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                    alt="Conjunto Tweed Exclusivo">
+                <h3>Conjunto Tweed Exclusivo</h3>
+                <p class="product-id">Ref: DN-109</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 13.800</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-109', 'Conjunto Tweed Exclusivo', 13800, 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=800&auto=format&fit=crop"
+                    alt="Saia Midi Plissada">
+                <h3>Saia Midi Plissada</h3>
+                <p class="product-id">Ref: DN-110</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 3.900</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-110', 'Saia Midi Plissada', 3900, 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
+                    alt="Bolsa Couro Legítimo">
+                <h3>Bolsa Couro Legítimo</h3>
+                <p class="product-id">Ref: DN-111</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="Único" selected>Tamanho Único</option>
+                    </select>
+                </div>
+                <p class="price">R$ 9.500</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-111', 'Bolsa Couro Legítimo', 9500, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop"
+                    alt="Scarpin Couro Fino">
+                <h3>Scarpin Couro Fino</h3>
+                <p class="product-id">Ref: DN-112</p>
+                <div class="size-selector-container">
+                    <label>Numeração:</label>
+                    <select class="size-select">
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37" selected>37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                    </select>
+                </div>
+                <p class="price">R$ 5.600</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-112', 'Scarpin Couro Fino', 5600, 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop"
+                    alt="Jaqueta de Couro Premium">
+                <h3>Jaqueta de Couro Premium</h3>
+                <p class="product-id">Ref: DN-113</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 8.700</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-113', 'Jaqueta de Couro Premium', 8700, 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop"
+                    alt="Macacão Utilitário Fino">
+                <h3>Macacão Utilitário Fino</h3>
+                <p class="product-id">Ref: DN-114</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="PP">PP</option>
+                        <option value="P">P</option>
+                        <option value="M" selected>M</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+                <p class="price">R$ 7.300</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-114', 'Macacão Utilitário Fino', 7300, 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop"
+                    alt="Óculos de Sol Haute Couture">
+                <h3>Óculos de Sol Haute Couture</h3>
+                <p class="product-id">Ref: DN-115</p>
+                <div class="size-selector-container">
+                    <label>Tamanho:</label>
+                    <select class="size-select">
+                        <option value="Único" selected>Tamanho Único</option>
+                    </select>
+                </div>
+                <p class="price">R$ 2.800</p>
+                <button class="add-to-cart-btn"
+                    onclick="adicionarAoCarrinhoComTamanho(this, 'DN-115', 'Óculos de Sol Haute Couture', 2800, 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop')">Adicionar
+                    à Sacola</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal do Carrinho -->
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sua Sacola Exclusiva</h2>
+                <button id="close-cart-btn" class="close-btn">&times;</button>
+            </div>
+
+            <div id="cart-items" class="cart-items-list">
+                <!-- Os itens serão inseridos via JavaScript -->
+            </div>
+
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cart-total-price">R$ 0</span>
+                </div>
+                <button class="checkout-btn">Finalizar Pedido VIP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer id="contato">
+        <p><strong>DU NANDA STORE Bariri</strong></p>
+        <p>Rua Rodrigues Alves, 397 - Centro, Bariri - SP</p>
+        <p>&copy; 2026 DU NANDA STORE. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
