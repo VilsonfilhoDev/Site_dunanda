@@ -36,7 +36,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #222222;
 }
 
 .logo-container {
@@ -80,13 +80,13 @@ header {
 }
 
 nav a {
-    color: #aaa;
+    color: #aaaaaa;
     text-decoration: none;
     margin: 0 15px;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -141,7 +141,7 @@ nav a:hover {
 .subtitle {
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: #aaa;
+    color: #aaaaaa;
     font-size: 0.85rem;
 }
 
@@ -187,8 +187,8 @@ nav a:hover {
 
 .filter-btn {
     background: transparent;
-    border: 1px solid #333;
-    color: #aaa;
+    border: 1px solid #333333;
+    color: #aaaaaa;
     padding: 8px 18px;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -214,7 +214,7 @@ nav a:hover {
 
 .product-card {
     background-color: #111111;
-    border: 1px solid #222;
+    border: 1px solid #222222;
     padding: 1.2rem;
     transition: transform 0.3s ease, border-color 0.3s ease;
     display: flex;
@@ -283,7 +283,7 @@ nav a:hover {
 
 .product-id {
     font-size: 0.75rem;
-    color: #666;
+    color: #666666;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
@@ -307,40 +307,40 @@ nav a:hover {
 
 .size-selector-container label {
     font-size: 0.75rem;
-    color: #aaa;
+    color: #aaaaaa;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .size-select {
-    background-color: #111;
-    color: #fff;
-    border: 1px solid #333;
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #333333;
     padding: 5px 10px;
     font-size: 0.8rem;
     border-radius: 4px;
     outline: none;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s ease;
 }
 
 .size-select:focus,
 .size-select:hover {
-    border-color: #fff;
+    border-color: #ffffff;
 }
 
 .add-to-cart-btn {
     width: 100%;
     padding: 12px;
     background: transparent;
-    border: 1px solid #333;
+    border: 1px solid #333333;
     color: #ffffff;
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.7rem;
     letter-spacing: 2px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .add-to-cart-btn:hover {
@@ -380,7 +380,7 @@ nav a:hover {
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid #222;
+    border-left: 1px solid #222222;
     transform: translateX(100%);
     transition: transform 0.3s ease;
 }
@@ -393,7 +393,7 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #222222;
     padding-bottom: 1.5rem;
 }
 
@@ -405,13 +405,14 @@ nav a:hover {
 .close-btn {
     background: none;
     border: none;
-    color: #888;
+    color: #888888;
     font-size: 1.8rem;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
 .close-btn:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 .cart-items-list {
@@ -433,7 +434,7 @@ nav a:hover {
     height: 75px;
     object-fit: cover;
     border-radius: 4px;
-    border: 1px solid #333;
+    border: 1px solid #333333;
 }
 
 .cart-item-info {
@@ -444,12 +445,12 @@ nav a:hover {
     font-size: 0.95rem;
     font-weight: 500;
     margin-bottom: 4px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .cart-item-info .item-ref {
     font-size: 0.75rem;
-    color: #888;
+    color: #888888;
     display: block;
     margin-bottom: 4px;
 }
@@ -457,7 +458,7 @@ nav a:hover {
 .cart-item-info p {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Tag de Tamanho no Carrinho */
@@ -470,9 +471,9 @@ nav a:hover {
 
 .item-size-badge {
     font-size: 0.7rem;
-    background-color: #222;
-    color: #fff;
-    border: 1px solid #444;
+    background-color: #222222;
+    color: #ffffff;
+    border: 1px solid #444444;
     padding: 2px 6px;
     border-radius: 3px;
     font-weight: 600;
@@ -482,11 +483,11 @@ nav a:hover {
 .cart-remove-btn {
     background: none;
     border: none;
-    color: #666;
+    color: #666666;
     font-size: 1.3rem;
     cursor: pointer;
     padding: 5px;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
 .cart-remove-btn:hover {
@@ -495,13 +496,13 @@ nav a:hover {
 
 .empty-msg {
     text-align: center;
-    color: #555;
+    color: #555555;
     margin-top: 3rem;
     font-size: 0.85rem;
 }
 
 .modal-footer {
-    border-top: 1px solid #222;
+    border-top: 1px solid #222222;
     padding-top: 1.5rem;
 }
 
@@ -524,19 +525,19 @@ nav a:hover {
     font-size: 0.75rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .checkout-btn:hover {
-    background-color: #ccc;
+    background-color: #cccccc;
 }
 
 /* =========================================
    6. RODAPÉ ESTILO MEGA FOOTER
 ========================================= */
 .site-footer {
-    background-color: #111;
-    color: #fff;
+    background-color: #111111;
+    color: #ffffff;
     padding: 3rem 5% 1.5rem;
     font-family: Arial, sans-serif;
     border-top: 1px solid #1a1a1a;
@@ -546,7 +547,7 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #333333;
     padding-bottom: 2rem;
     margin-bottom: 1.5rem;
     align-items: start;
@@ -559,7 +560,7 @@ nav a:hover {
 }
 
 .footer-col h4 {
-    color: #fff;
+    color: #ffffff;
     font-size: 0.9rem;
     text-transform: uppercase;
     margin-top: 0;
@@ -567,14 +568,14 @@ nav a:hover {
 }
 
 .footer-col a {
-    color: #999;
+    color: #999999;
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.2s ease;
 }
 
 .footer-col a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 .footer-col.main-links {
@@ -583,7 +584,7 @@ nav a:hover {
 }
 
 .main-links a {
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -599,7 +600,7 @@ nav a:hover {
 }
 
 .footer-desc {
-    color: #999;
+    color: #999999;
     font-size: 1rem;
     line-height: 1.5;
     margin-top: 15px;
@@ -638,15 +639,15 @@ nav a:hover {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #333;
-    color: #fff !important;
+    background-color: #333333;
+    color: #ffffff !important;
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
-    background-color: #fff;
-    color: #000 !important;
+    background-color: #ffffff;
+    color: #000000 !important;
     transform: translateY(-3px);
 }
 
@@ -664,13 +665,14 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #fff;
-    color: #000 !important;
+    background-color: #ffffff;
+    color: #000000 !important;
     padding: 10px 5px;
     border-radius: 6px;
     font-weight: bold;
     font-size: 0.75rem;
     text-transform: uppercase;
+    transition: background-color 0.2s ease;
 }
 
 .store-btn svg {
@@ -680,7 +682,7 @@ nav a:hover {
 }
 
 .store-btn:hover {
-    background-color: #ddd;
+    background-color: #dddddd;
 }
 
 .footer-bottom {
@@ -688,7 +690,7 @@ nav a:hover {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    color: #777;
+    color: #777777;
     font-size: 0.75rem;
 }
 
@@ -699,12 +701,13 @@ nav a:hover {
 }
 
 .legal-links a {
-    color: #777;
+    color: #777777;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .legal-links a:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 .copyright-info {

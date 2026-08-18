@@ -21,7 +21,7 @@ const checkoutBtn = document.querySelector('.checkout-btn');
 /* =========================================
    3. FUNÇÕES AUXILIARES
 ========================================= */
-// Formata números para o padrão BRL (ex: 150 -> R$ 150,00)
+// Formata números para o padrão BRL (ex: 12500 -> R$ 12.500,00)
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
@@ -47,13 +47,15 @@ function adicionarAoCarrinhoComTamanho(button, id, nome, preco, imagemUrl) {
     abrirModal();
 }
 
-// Atualiza o HTML do carrinho e calcula o total
+// Atualiza o HTML do carrinho e calcula o valor total
 function atualizarCarrinho() {
+    if (!cartCount || !cartItemsContainer || !cartTotalPrice) return;
+
     cartCount.innerText = carrinho.length;
     cartItemsContainer.innerHTML = '';
 
     if (carrinho.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-msg">Seu carrinho está vazio.</p>';
+        cartItemsContainer.innerHTML = '<p class="empty-msg">Sua sacola está vazia.</p>';
         cartTotalPrice.innerText = formatarMoeda(0);
         return;
     }
@@ -70,7 +72,7 @@ function atualizarCarrinho() {
             <div class="cart-item-info">
                 <h4>${item.nome}</h4>
                 <div class="cart-item-meta">
-                    <span class="item-ref">Ref: ${item.id}</span>
+                    <span class="item-ref">Ref: ${item.id}</span> | 
                     <span class="item-size-badge">Tam: ${item.tamanho}</span>
                 </div>
                 <p>${formatarMoeda(item.preco)}</p>
@@ -83,7 +85,7 @@ function atualizarCarrinho() {
     cartTotalPrice.innerText = formatarMoeda(total);
 }
 
-// Remover item específico do carrinho
+// Remover item específico do carrinho pelo índice
 function removerDoCarrinho(index) {
     carrinho.splice(index, 1);
     salvarCarrinho();
@@ -95,7 +97,7 @@ function removerDoCarrinho(index) {
 ========================================= */
 function finalizarPedidoWhatsApp() {
     if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
+        alert("Sua sacola está vazia!");
         return;
     }
 
@@ -117,7 +119,7 @@ function finalizarPedidoWhatsApp() {
 }
 
 /* =========================================
-   6. FILTRO DE CATEGORIAS (OPCIONAL)
+   6. FILTRO DE CATEGORIAS
 ========================================= */
 function filtrarProdutos(categoria, buttonElement) {
     // Alterna a classe ativa nos botões
@@ -140,9 +142,15 @@ function filtrarProdutos(categoria, buttonElement) {
 /* =========================================
    7. CONTROLE DO MODAL E EVENTOS
 ========================================= */
-function abrirModal() { cartModal.classList.add('active'); }
-function fecharModal() { cartModal.classList.remove('active'); }
+function abrirModal() {
+    if (cartModal) cartModal.classList.add('active');
+}
 
+function fecharModal() {
+    if (cartModal) cartModal.classList.remove('active');
+}
+
+// Registra os ouvintes de eventos da interface
 if (cartBtn) cartBtn.addEventListener('click', abrirModal);
 if (closeCartBtn) closeCartBtn.addEventListener('click', fecharModal);
 if (checkoutBtn) checkoutBtn.addEventListener('click', finalizarPedidoWhatsApp);
@@ -153,7 +161,7 @@ if (cartModal) {
     });
 }
 
-// Inicializa a renderização do carrinho na carga da página
+// Inicializa a renderização do carrinho assim que o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     atualizarCarrinho();
 });
