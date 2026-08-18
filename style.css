@@ -474,4 +474,129 @@ footer strong {
     border-radius: 3px;
     font-weight: 600;
     letter-spacing: 0.5px;
+}/* =========================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Ajuste do Cabeçalho (Menu) */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem 5%;
+        position: relative; /* Solta o cabeçalho para não sobrepor o banner no celular */
+    }
+
+    .logo-container {
+        margin-bottom: 5px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0; 
+    }
+
+    /* 2. Ajuste do Banner Principal */
+    .hero {
+        height: auto;
+        padding: 4rem 5%;
+        background-position: center top;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem; /* Reduz o texto gigante */
+        margin: 1rem 0;
+    }
+
+    /* 3. Ajuste da Vitrine de Produtos */
+    .catalog {
+        padding: 3rem 5%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Força 1 produto por linha no celular */
+        gap: 2rem;
+    }
+
+    .product-card img {
+        height: auto; /* Deixa a foto proporcional */
+        aspect-ratio: 3/4; /* Mantém o formato de foto de moda */
+    }
+
+    /* 4. Ajuste do Carrinho (Modal) */
+    .modal-content {
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+    }
+}
+/* =========================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+========================================= */
+@media (max-width: 768px) {
+
+    /* 1. Ajuste do Cabeçalho (Menu) */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem 5%;
+        position: relative;
+        /* Solta o cabeçalho para não sobrepor o banner no celular */
+    }
+
+    .logo-container {
+        margin-bottom: 5px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    /* 2. Ajuste do Banner Principal */
+    .hero {
+        height: auto;
+        padding: 4rem 5%;
+        background-position: center top;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        /* Reduz o texto gigante */
+        margin: 1rem 0;
+    }
+
+    /* 3. Ajuste da Vitrine de Produtos */
+    .catalog {
+        padding: 3rem 5%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        /* Força 1 produto por linha no celular */
+        gap: 2rem;
+    }
+
+    .product-card img {
+        height: auto;
+        /* Deixa a foto proporcional */
+        aspect-ratio: 3/4;
+        /* Mantém o formato de foto de moda */
+    }
+
+    /* 4. Ajuste do Carrinho (Modal) */
+    .modal-content {
+        max-width: 100%;
+        padding: 1.5rem 1rem;
+    }
 }
