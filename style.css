@@ -1,4 +1,6 @@
-/* Reset e Fontes */
+/* =========================================
+   1. RESET E VARIÁVEIS GERAIS
+========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +22,9 @@ h3,
     letter-spacing: 3px;
 }
 
-/* Header & Logo */
+/* =========================================
+   2. CABEÇALHO E NAVEGAÇÃO
+========================================= */
 header {
     display: flex;
     justify-content: space-between;
@@ -107,7 +111,9 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* Hero Section */
+/* =========================================
+   3. BANNER PRINCIPAL (HERO)
+========================================= */
 .hero {
     height: 85vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
@@ -150,7 +156,9 @@ nav a:hover {
     color: #000000;
 }
 
-/* Catálogo */
+/* =========================================
+   4. VITRINE DE PRODUTOS
+========================================= */
 .catalog {
     padding: 5rem 5%;
     text-align: center;
@@ -206,6 +214,40 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
+/* Seletor de Tamanhos nos Cards */
+.size-selector-container {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.size-selector-container label {
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.size-select {
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.size-select:focus,
+.size-select:hover {
+    border-color: #fff;
+}
+
 .add-to-cart-btn {
     width: 100%;
     padding: 12px;
@@ -224,7 +266,9 @@ nav a:hover {
     color: #000000;
 }
 
-/* Modal do Carrinho */
+/* =========================================
+   5. MODAL DO CARRINHO (SACOLA)
+========================================= */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -296,26 +340,75 @@ nav a:hover {
 
 .cart-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    gap: 15px;
+    padding: 15px 0;
     border-bottom: 1px solid #1a1a1a;
 }
 
+.cart-item-img {
+    width: 60px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
 .cart-item-info h4 {
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #fff;
 }
 
 .cart-item-info .item-ref {
     font-size: 0.75rem;
-    color: #666;
+    color: #888;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .cart-item-info p {
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-top: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Tag de Tamanho no Carrinho */
+.cart-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.item-size-badge {
+    font-size: 0.7rem;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.cart-remove-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.cart-remove-btn:hover {
+    color: #ff4d4d;
 }
 
 .empty-msg {
@@ -356,196 +449,207 @@ nav a:hover {
     background-color: #ccc;
 }
 
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 2.5rem;
+/* =========================================
+   6. RODAPÉ ESTILO MEGA FOOTER (CORRIGIDO)
+========================================= */
+.site-footer {
+    background-color: #111;
+    color: #fff;
+    padding: 3rem 5% 1.5rem;
+    font-family: Arial, sans-serif;
     border-top: 1px solid #1a1a1a;
-    font-size: 0.8rem;
-    color: #777;
-    line-height: 1.8;
 }
 
-footer strong {
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    align-items: start;
+    /* GARANTE QUE TODAS AS COLUNAS COMECEM NA MESMA LINHA NO TOPO */
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 0;
+    /* REMOVE MARGENS INVISÍVEIS DO TOPO */
+    margin-bottom: 5px;
+}
+
+.footer-col a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
     color: #fff;
 }
-/* Estilo da foto do item dentro do carrinho */
-.cart-item {
+
+/* Coluna 1: Logo e Texto Alinhados */
+.footer-col.main-links {
+    align-items: center;
+    text-align: center;
+}
+
+.main-links a {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+/* Logo alinhado ao topo */
+.footer-logo {
+    transform: scale(2.5);
+    transform-origin: top center;
+    /* ANCORA NO TOPO E NO MEIO */
+    margin-top: 0;
+    /* ZERA QUALQUER MARGEM EXTRA NO TOPO */
+    margin-bottom: 60px;
+    /* DÁ UM RESPIRO PARA O TEXTO ABAIXO */
+    text-decoration: none;
+    display: inline-block;
+}
+
+.footer-desc {
+    color: #999;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+/* Coluna 4: Redes e Apps Centralizados */
+.footer-col.social-app {
+    align-items: center;
+}
+
+.social-section,
+.app-section {
+    width: 100%;
+    max-width: 280px;
+}
+
+.social-section {
+    margin-bottom: 2rem;
+}
+
+.social-section h4,
+.app-section h4 {
+    text-align: center;
+    width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.social-link {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid #1a1a1a;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
-.cart-item-img {
-    width: 60px;
-    height: 75px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 1px solid #333;
+.social-link:hover {
+    background-color: #fff;
+    color: #000 !important;
+    transform: translateY(-3px);
 }
 
-.cart-item-info {
+.store-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.store-btn {
     flex: 1;
-}
-
-.cart-item-info h4 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-    color: #fff;
-}
-
-.cart-item-info .item-ref {
-    font-size: 0.75rem;
-    color: #888;
-    display: block;
-    margin-bottom: 4px;
-}
-
-.cart-item-info p {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-}
-
-.cart-remove-btn {
-    background: none;
-    border: none;
-    color: #666;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 5px;
-    transition: color 0.2s;
-}
-
-.cart-remove-btn:hover {
-    color: #ff4d4d;
-}
-/* Seletor de Tamanhos nos Cards */
-.size-selector-container {
-    margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-}
-
-.size-selector-container label {
+    background-color: #fff;
+    color: #000 !important;
+    padding: 10px 5px;
+    border-radius: 6px;
+    font-weight: bold;
     font-size: 0.75rem;
-    color: #aaa;
-    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.size-select {
-    background-color: #111;
-    color: #fff;
-    border: 1px solid #333;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    outline: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.2s;
+.store-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
 }
 
-.size-select:focus,
-.size-select:hover {
-    border-color: #fff;
+.store-btn:hover {
+    background-color: #ddd;
 }
 
-/* Tag de Tamanho no Carrinho */
-.cart-item-meta {
+/* Rodapé Base (Direitos autorais) */
+.footer-bottom {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #777;
+    font-size: 0.75rem;
 }
 
-.item-size-badge {
-    font-size: 0.7rem;
-    background-color: #222;
+.legal-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.legal-links a {
+    color: #777;
+    text-decoration: none;
+}
+
+.legal-links a:hover {
     color: #fff;
-    border: 1px solid #444;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}/* =========================================
-   RESPONSIVIDADE (CELULARES E TABLETS)
-========================================= */
-@media (max-width: 768px) {
-    /* 1. Ajuste do Cabeçalho (Menu) */
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 1rem 5%;
-        position: relative; /* Solta o cabeçalho para não sobrepor o banner no celular */
-    }
-
-    .logo-container {
-        margin-bottom: 5px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    nav a {
-        margin: 0; 
-    }
-
-    /* 2. Ajuste do Banner Principal */
-    .hero {
-        height: auto;
-        padding: 4rem 5%;
-        background-position: center top;
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem; /* Reduz o texto gigante */
-        margin: 1rem 0;
-    }
-
-    /* 3. Ajuste da Vitrine de Produtos */
-    .catalog {
-        padding: 3rem 5%;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr; /* Força 1 produto por linha no celular */
-        gap: 2rem;
-    }
-
-    .product-card img {
-        height: auto; /* Deixa a foto proporcional */
-        aspect-ratio: 3/4; /* Mantém o formato de foto de moda */
-    }
-
-    /* 4. Ajuste do Carrinho (Modal) */
-    .modal-content {
-        max-width: 100%;
-        padding: 1.5rem 1rem;
-    }
 }
+
+.copyright-info {
+    text-align: right;
+    line-height: 1.5;
+}
+
 /* =========================================
-   RESPONSIVIDADE (CELULARES E TABLETS)
+   7. RESPONSIVIDADE (CELULARES E TABLETS)
 ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. Ajuste do Cabeçalho (Menu) */
+    /* Menu e Logo */
     header {
         flex-direction: column;
         gap: 15px;
         padding: 1rem 5%;
         position: relative;
-        /* Solta o cabeçalho para não sobrepor o banner no celular */
     }
 
     .logo-container {
@@ -563,7 +667,7 @@ footer strong {
         margin: 0;
     }
 
-    /* 2. Ajuste do Banner Principal */
+    /* Banner Principal */
     .hero {
         height: auto;
         padding: 4rem 5%;
@@ -572,31 +676,38 @@ footer strong {
 
     .hero-content h1 {
         font-size: 1.8rem;
-        /* Reduz o texto gigante */
         margin: 1rem 0;
     }
 
-    /* 3. Ajuste da Vitrine de Produtos */
+    /* Vitrine */
     .catalog {
         padding: 3rem 5%;
     }
 
     .product-grid {
         grid-template-columns: 1fr;
-        /* Força 1 produto por linha no celular */
         gap: 2rem;
     }
 
     .product-card img {
         height: auto;
-        /* Deixa a foto proporcional */
         aspect-ratio: 3/4;
-        /* Mantém o formato de foto de moda */
     }
 
-    /* 4. Ajuste do Carrinho (Modal) */
+    /* Modal */
     .modal-content {
         max-width: 100%;
         padding: 1.5rem 1rem;
+    }
+
+    /* Ajuste Rodapé */
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .copyright-info {
+        text-align: center;
     }
 }
